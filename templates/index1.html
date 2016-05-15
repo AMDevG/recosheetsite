@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- Template by Quackit.com -->
+<!-- Images by various sources under the Creative Commons CC0 license and/or the Creative Commons Zero license. 
+Although you can use them, for a more unique website, replace these images with your own. -->
+
+{%load staticfiles%}
+<html>
+
+<title>Blueprint Mapper</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="{%static 'css/main.css' %}">
+<link rel="icon" href="{%static 'img/bpfav.ico'%}" type="image/x-icon"/>
+<link rel="shortcut icon" href="{%static 'img/bpfav.ico'%}" type="image/x-icon"/>
+
+<body background= "{%static 'img/BPLogo.png'%}" >
+
+
+<div id="propBox" >
+
+<form class="w3-container" action = "/success/" method="POST" id="plotForm">
+    {% csrf_token %}
+
+
+    <br>
+    
+    <label class="w3-label" name="name">Property Name </label>
+    <input type="text" class ="w3-input"  name="subject"><br><br>
+
+    <label class="w3-label" name="mail">Property City </label>
+    <input id = "propInput" type="text" name="addr1"><br><br><br>
+
+    <label class="w3-label" name="message">Property State </label>
+    <input id = "propInput" type="text" name="addr2"><br><br><br>
+
+    <label class="w3-label">Property Care Type </label>
+    <input id = "propInput" type="text" name="addr3"><br><br><br>
+
+    <label class="w3-label">Number of Units/Beds </label>
+    <input id = "propInput" type="text" name="addr4"><br><br><br>
+
+    <label class="w3-label">Deliverable Type Required </label>
+    <input id = "propInput" type="text" name="addr5"><br><br><br>
+
+    <label class="w3-label">Expected Deliverable Date </label>
+    <input id = "propInput" type="text" name="addr6"><br><br><br>
+
+    <input type="submit" class="button scrolly" value="Plot Facilities" id="send">
+
+
+</form>
+
+</div>
+
+
+    <div class="banner">
+
+        <div class="emailForm" id="contactForm">
+
+            <form action="/success/" method="POST" id= "contForm">
+            {% csrf_token %}
+            <br>Name:<br><br>
+            <input type="text" name="name" value="Your Name..." size="55"><br>
+
+            <br>E-mail:<br><br>
+            <input type="text" name="mail" value="Your Email..." size="55"><br>
+
+            <br>Message:<br><br>
+
+           <textarea name="message" style="width:435px;height:150px;"></textarea>
+            <br>
+            <button name = "Send" type = "submit" id="send">Send</button>
+
+            </form>
+        </div>
+</body>
+</html>
