@@ -19,9 +19,11 @@ def success(request):
         due_date = request.POST.get('dueDate', None)
         message_text = request.POST.get('message', None)
 
+        email_reco = "Transaction Name: " + trans_name + '\n' + "Delivery Type: " + delivery_type + '\n' + "City: " + city_name + "State Name: " + state_name + '\n' + "Care Type: " + care_type + '\n' + "Origination Lead: " + orig_lead  + '\n' + "Production Lead: " + prod_lead + '\n' + "Expected Delivery: " + due_date + '\n' + "Transaction Notes: " + message_text 
 
 
-        send_mail('New Reco Sheet - ' + trans_name, message_text,"bprecosheet@gmail.com",
+
+        send_mail('New Reco Sheet - ' + trans_name, email_reco,"bprecosheet@gmail.com",
         ['jeberry308@gmail.com'], fail_silently=False)
 
 
