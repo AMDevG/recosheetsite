@@ -8,14 +8,20 @@ def reco(request):
 def success(request):
 
     if request.method == 'POST':
-        name_text = request.POST.get('name', None)
-        email_text = request.POST.get('mail', None)
+        trans_name = request.POST.get('transName', None)
+        delivery_type = request.POST.get('deliverType', None)
+        city_name = request.POST.get('cityName', None)
+        state_name = request.POST.get('stateName', None)
+        num_units = request.POST.get('numUnits', None)
+        care_type = request.POST.get('careType',None)
+        orig_lead = request.POST.get('origLead', None)
+        prod_lead = request.POST.get('prodLead', None)
+        due_date = request.POST.get('dueDate', None)
         message_text = request.POST.get('message', None)
 
-        print(name_text)
-        print(email_text)
 
-        send_mail('New Reco Sheet', message_text,"bprecosheet@gmail.com",
+
+        send_mail('New Reco Sheet - ' + trans_name, message_text,"bprecosheet@gmail.com",
         ['jeberry308@gmail.com'], fail_silently=False)
 
 
