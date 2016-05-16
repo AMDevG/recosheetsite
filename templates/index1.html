@@ -15,8 +15,8 @@ Although you can use them, for a more unique website, replace these images with 
 
 <body background= "{%static 'img/BPLogo.png'%}" >
 
-
-<div id="propBox" >
+<!--
+<div id="propBo" >
 
 <form class="w3-container" action = "/success/" method="POST" id="plotForm">
     {% csrf_token %}
@@ -51,21 +51,42 @@ Although you can use them, for a more unique website, replace these images with 
 </form>
 
 </div>
+-->
 
-
-    <div class="banner">
+    <div id="propBox">
 
         <div class="emailForm" id="contactForm">
 
             <form action="/success/" method="POST" id= "contForm">
             {% csrf_token %}
-            <br>Name:<br><br>
-            <input type="text" name="name" value="Your Name..." size="55"><br>
+            <br>Transaction Name:<br><br>
+            <input type="text" name="name" value="Transaction Name..." size="55"><br>
 
-            <br>E-mail:<br><br>
-            <input type="text" name="mail" value="Your Email..." size="55"><br>
+            <br>Deliverable Type Required:<br><br>
+            <input type="text" name="mail" size="55"><br>
 
-            <br>Message:<br><br>
+            <br>City:<br><br>
+            <input type="text" name="mail" size="55"><br>
+
+            <br>State:<br><br>
+            <input type="text" name="mail"  size="55"><br>
+
+            <br>Number of Units/Beds:<br><br>
+            <input type="text" name="mail" size="55"><br>
+
+            <br>Care Type:<br><br>
+            <input type="text" name="mail" size="55"><br>
+
+            <br>Origination Lead:<br><br>
+            <input type="text" name="mail" size="55"><br>
+
+            <br>Production Lead:<br><br>
+            <input type="text" name="mail" size="55"><br>
+
+            <br>Timing Expectation<br><br>
+            <input type="text" name="mail" size="55"><br>
+
+            <br>Transaction Notes:<br><br>
 
            <textarea name="message" style="width:435px;height:150px;"></textarea>
             <br>
