@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 
 def reco(request):
-	return render(request, 'index1.html')# Create your views here.
+	return render(request, 'index.html')# Create your views here.
 
 
 def success(request):

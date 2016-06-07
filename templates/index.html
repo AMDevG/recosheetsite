@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="{%static 'css/test4.css'%}" rel="stylesheet">
+
+<body bgcolor="#375472">
+    <nav role="navigation" style="text-align: center;">
+
+        <img src="{%static 'img/logo.jpeg'%}" alt="LOGO" style="float:left;">
+        			<br>
+        <h2 style="text-align: center;" class="header1"> BLUEPRINT RECO SITE</h2>
+
+    </nav>
+
+
+    <div id="propBox">
+
+        <div class="emailForm" id="contactForm">
+
+            <form action="/success/" method="POST" id= "contForm">
+            {% csrf_token %}
+            <br>Transaction Name:<br>
+            <input type="text" name="transName" size="55"><br>
+
+            <br>Deliverable Type Required:<br>
+            <input type="text" name="deliverType" size="55"><br>
+
+            <br>City:<br>
+            <input type="text" name="cityName" size="55"><br>
+
+            <br>State:<br>
+            <input type="text" name="stateName"  size="55"><br>
+
+            <br>Number of Units/Beds:<br>
+            <input type="text" name="numUnits" size="55"><br>
+
+            <br>Care Type:<br>
+            <input type="text" name="careType" size="55"><br>
+
+            <br>Origination Lead:<br>
+            <input type="text" name="origLead" size="55"><br>
+
+            <br>Production Lead:<br>
+            <input type="text" name="prodLead" size="55"><br>
+
+            <br>Timing Expectation<br>
+            <input type="text" name="dueDate" size="55"><br>
+
+            <br>Transaction Notes:<br>
+
+           <textarea name="message" style="width:435px;height:150px;"></textarea>
+            <br>
+            <button name = "Send" type = "submit" id="send">Send</button>
+
+            </form>
+        </div>
+
+
+
+
+</body>
+
+</html>
