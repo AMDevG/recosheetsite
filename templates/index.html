@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <meta charset="utf-8">
+    
     <link href="{%static 'css/test4.css'%}" rel="stylesheet">
 
 <body bgcolor="#375472">
@@ -23,34 +23,46 @@
             <form action="/success/" method="POST" id= "contForm">
             {% csrf_token %}
             <br>Transaction Name:<br>
-            <input type="text" name="transName" size="55"><br>
+            <input type="text" name="transName" size="30"><br>
 
             <br>Deliverable Type Required:<br>
-            <input type="text" name="deliverType" size="55"><br>
+
+            <select name="deliveryType" >
+                <option value="Numbers Spread"> Numbers Spread</option>
+                <option value = "Valuation Memo"> Valuation Memo</option>
+                <option value= "Proposal"> Proposal</option>
+                <option value = "Offering Memorandum"> Offering Memorandum</option>
+            </select>
+            
 
             <br>City:<br>
-            <input type="text" name="cityName" size="55"><br>
+            <input type="text" name="cityName" size="30"><br>
 
             <br>State:<br>
-            <input type="text" name="stateName"  size="55"><br>
+            <input type="text" name="stateName"  size="30"><br>
 
             <br>Number of Units/Beds:<br>
-            <input type="text" name="numUnits" size="55"><br>
+            <input type="text" name="numUnits" size="30"><br>
 
             <br>Care Type:<br>
-            <input type="text" name="careType" size="55"><br>
+
+    <div style="display:inline">
+
+            <input type="radio" name="careType" value="IL"> IL 
+            <input type="radio" name="careType" value="AL"> AL 
+            <input type="radio" name="careType" value="MC"> MC 
+            <input type="radio" name="careType" value="SNF"> SNF 
+            <input type="radio" name="careType" value="LTACH"> LTACH 
+    </div>
+    <br>
 
             <br>Origination Lead:<br>
-            <input type="text" name="origLead" size="55"><br>
-
-            <br>Production Lead:<br>
-            <input type="text" name="prodLead" size="55"><br>
+            <input type="text" name="origLead" size="30"><br>
 
             <br>Timing Expectation<br>
-            <input type="text" name="dueDate" size="55"><br>
+            <input type="text" name="dueDate" size="30"><br>
 
             <br>Transaction Notes:<br>
-
            <textarea name="message" style="width:435px;height:150px;"></textarea>
             <br>
             <button name = "Send" type = "submit" id="send">Send</button>

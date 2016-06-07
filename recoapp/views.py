@@ -2,14 +2,13 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 
 def reco(request):
-	return render(request, 'index.html')# Create your views here.
-
+	return render(request, 'index.html')
 
 def success(request):
 
     if request.method == 'POST':
         trans_name = request.POST.get('transName', None)
-        delivery_type = request.POST.get('deliverType', None)
+        delivery_type = request.POST.get('deliveryType', None)
         city_name = request.POST.get('cityName', None)
         state_name = request.POST.get('stateName', None)
         num_units = request.POST.get('numUnits', None)
@@ -19,7 +18,9 @@ def success(request):
         due_date = request.POST.get('dueDate', None)
         message_text = request.POST.get('message', None)
 
-        email_reco = "Transaction Name: " + trans_name + '\n' + "Delivery Type: " + delivery_type + '\n' + "City: " + city_name + "State Name: " + state_name + '\n' + "Care Type: " + care_type + '\n' + "Origination Lead: " + orig_lead  + '\n' + "Production Lead: " + prod_lead + '\n' + "Expected Delivery: " + due_date + '\n' + "Transaction Notes: " + message_text 
+        print("processed request")
+
+        email_reco = "Transaction Name: " + str(trans_name) + '\n' + "Delivery Type: " + str(delivery_type) + '\n' + "City: " + str(city_name) + '\n' + "State: " + str(state_name) + '\n' + "Care Type: " + str(care_type) + '\n' + "Origination Lead: " + str(orig_lead)  + '\n' + "Expected Delivery: " + str(due_date) + '\n' + "Transaction Notes: " + str(message_text) 
 
 
 
