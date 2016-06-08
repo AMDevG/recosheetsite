@@ -12,7 +12,7 @@ def success(request):
         city_name = request.POST.get('cityName', None)
         state_name = request.POST.get('stateName', None)
         num_units = request.POST.get('numUnits', None)
-        care_type = request.POST.get('careType',None)
+        care_type = request.POST.getlist('careType',None)
         orig_lead = request.POST.get('origLead', None)
         prod_lead = request.POST.get('prodLead', None)
         due_date = request.POST.get('dueDate', None)
@@ -20,7 +20,7 @@ def success(request):
 
         print("processed request")
 
-        email_reco = "Transaction Name: " + str(trans_name) + '\n' + "Delivery Type: " + str(delivery_type) + '\n' + "City: " + str(city_name) + '\n' + "State: " + str(state_name) + '\n' + "Care Type: " + str(care_type) + '\n' + "Origination Lead: " + str(orig_lead)  + '\n' + "Expected Delivery: " + str(due_date) + '\n' + "Transaction Notes: " + str(message_text) 
+        email_reco = "Transaction Name: " + str(trans_name) + '\n' + "Delivery Type: " + str(delivery_type) + '\n' + "City: " + str(city_name) + '\n' + "State: " + str(state_name) + '\n' + "Care Type: " + str(care_type) + '\n' + "Origination Lead: " + str(orig_lead)  + '\n' + "Expected Delivery: " + str(due_date) + '\n' + "Transaction Notes: " + str(message_text)
 
 
 
