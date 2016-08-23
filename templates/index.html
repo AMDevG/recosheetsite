@@ -16,7 +16,7 @@
     </nav>
 
 
-
+<!--
       {% if documents %}
         <ul>
             {% for document in documents %}
@@ -26,15 +26,17 @@
     {% else %}
         <p>No documents.</p>
     {% endif %}
-
+-->
 
     <div id="propBox">
         <div class="emailForm" id="contactForm">
 
         <form action="{%url 'recoapp:list' %}" method="post" enctype="multipart/form-data" id="contForm">
             {% csrf_token %}
-
+            <br>Transaction Name:<br>
                 <input type="text" name="transName" size="30"><br>
+
+        
 
             <br>Deliverable Type Required:<br>
 
