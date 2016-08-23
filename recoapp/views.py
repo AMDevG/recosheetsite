@@ -4,6 +4,8 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
+from django.views.generic.edit import FormView
+
 
 from .models import Document
 from .forms import DocumentForm
@@ -105,8 +107,11 @@ def list(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
-            newdoc = Document(docfile=request.FILES['docfile'])
-            newdoc.save()
+
+            for f in form:
+                
+                newdoc = Document(docfile=request.FILES['docfile'])
+                newdoc.save()
 
             # Redirect to the document list after POST
             return HttpResponseRedirect(reverse('recoapp:list'))
@@ -122,3 +127,22 @@ def list(request):
         'index.html',
         {'documents': documents, 'form': form}
     )
+
+
+# class FileFieldView(FormView):
+#     form_class = DocumentForm
+#     template_name = 'list.html'  # Replace with your template.
+#     success_url = reverse('recoapp:list')  # Replace with your URL or reverse().
+
+#     def post(self, request, *args, **kwargs):
+
+#         print("running in class")
+#         form_class = self.get_form_class()
+#         form = self.get_form(form_class)
+#         files = request.FILES.getlist('file_field')
+#         if form.is_valid():
+#             for f in files:
+#                 f.save()
+#             return self.form_valid(form)
+#         else:
+#             return self.form_invalid(form)
