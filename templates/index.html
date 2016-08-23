@@ -10,20 +10,31 @@
     <nav role="navigation" style="text-align: center;">
 
         <img src="{%static 'img/logo.jpeg'%}" alt="LOGO" style="float:left;">
-        			<br>
+                    <br>
         <h2 style="text-align: center;" class="header1"> BLUEPRINT RECO SITE</h2>
 
     </nav>
 
 
-    <div id="propBox">
 
+      {% if documents %}
+        <ul>
+            {% for document in documents %}
+                <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No documents.</p>
+    {% endif %}
+
+
+    <div id="propBox">
         <div class="emailForm" id="contactForm">
 
-            <form action="/success/" method="POST" id= "contForm">
+        <form action="{%url 'recoapp:list' %}" method="post" enctype="multipart/form-data" id="contForm">
             {% csrf_token %}
-            <br>Transaction Name:<br>
-            <input type="text" name="transName" size="30"><br>
+
+                <input type="text" name="transName" size="30"><br>
 
             <br>Deliverable Type Required:<br>
 
@@ -60,24 +71,25 @@
             <input type="text" name="origLead" size="30"><br>
 
             <br>Timing Expectation<br>
-            <input type="date" name="dueDate"><br>
+    <input type="date" name="dueDate"><br>
 
+    
+      
+            <p>{{ form.non_field_errors }}</p>
 
-            <br>Due Diligence Materials Upload <br>
-                <input type="file" name='due_dil'> 
+            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
 
-                <br> 
-
-            <br>Transaction Notes:<br>
-           <textarea name="message" style="width:435px;height:150px;"></textarea>
-
-            <br>
-            <button name = "Send" type = "submit" id="send">Send</button>
-
-
+            <p>
+                {{ form.docfile.errors }}
+                {{ form.docfile }}
+            </p>
 
 
             </form>
+            <br>
+            
+            <p><input type="submit" value="Upload Reco Sheet"/></p>
+        </form>
         </div>
 
 
