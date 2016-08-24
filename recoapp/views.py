@@ -3,8 +3,11 @@ from django.core.mail import send_mail, EmailMessage
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.shortcuts import redirect
 
 from django.views.generic.edit import FormView
+
+from .models import Attachment
 
 
 from recoapp.models import Document
@@ -35,4 +38,26 @@ def reco(request):
         {'documents': documents, 'form': form}
     )
 
+
+def list(request):
+
+    if request.method == "POST":
+        parent_id = request.POST['parent_id']
+        files = request.FILES.getlist('myfiles')
+        for a_file in files:
+            instance = Attachment(
+                parent_id=parent_id,
+                file_name=a_file.name,
+                attachment=a_file
+            )
+            instance.save()
+            print(a_file.name)
+
+        return render(request,'add_attachment_done.html')
+
+    return render(request, "add_attachment.html")
+
+
+# def add_attachment_done(request):
+#     return render_to_response('add_attachment_done.html')
 

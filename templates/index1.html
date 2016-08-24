@@ -94,6 +94,19 @@
        
 
         </form>
+
+<br>
+<br>
+
+        <form action="{%url 'recoapp:list' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <input id="id_parent_id" type="text" maxlength="18" name="parent_id">
+
+            <input type="file" name="myfiles" multiple>
+
+            <button type="submit">go</button>
+
         </div>
 
 
