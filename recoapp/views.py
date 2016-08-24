@@ -11,7 +11,7 @@ from .models import Document
 from .forms import DocumentForm
 from django.http import Http404
 
-def reco(request):
+def reco1(request):
 	return render(request, 'index.html')
 
 # def success(request):
@@ -102,7 +102,7 @@ def reco(request):
     # 	return HttpResponse("Sorry nothing entered")
 
 
-def list(request):
+def reco(request):
     # Handle file upload
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
@@ -111,7 +111,7 @@ def list(request):
             newdoc.save()
 
             # Redirect to the document list after POST
-            return HttpResponseRedirect(reverse('recoapp:list'))
+            return HttpResponseRedirect(reverse('recoapp:reco'))
     else:
         form = DocumentForm()  # A empty, unbound form
 

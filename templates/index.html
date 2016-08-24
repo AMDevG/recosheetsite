@@ -31,7 +31,7 @@
     <div id="propBox">
         <div class="emailForm" id="contactForm">
 
-        <form action="{%url 'recoapp:list' %}" method="post" enctype="multipart/form-data" id="contForm">
+        <form action="{%url 'recoapp:reco' %}" method="post" enctype="multipart/form-data" id="contForm">
             {% csrf_token %}
             <br>Transaction Name:<br>
                 <input type="text" name="transName" size="30"><br>
@@ -73,7 +73,7 @@
             <input type="text" name="origLead" size="30"><br>
 
             <br>Timing Expectation<br>
-    <input type="date" name="dueDate"><br>
+    <input type="date" name="dueDate" required><br>
 
     
       
@@ -90,7 +90,7 @@
        
             <br>
 
-        <button name = "Send" type = "submit" id="send">Send</button>
+        <button name = "Upload" type = "submit" >Send</button>
        
 
         </form>
