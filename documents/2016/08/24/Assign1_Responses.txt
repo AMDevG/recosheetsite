@@ -1,0 +1,32 @@
+ 
+
+A) Command: objdump -d sortO0 or gcc -O0 -c -S 		result for %d in assembly:
+
+	40091C: e8 1f fd ff ff callq 400640 <printf @plt> - this is the assembly to call the printf function
+
+	.LC1 .string "%d/n "
+
+
+B) Local Variable for haveExchanged:
+
+	Command for bubbleSort assembly: gcc -O0 -c -S bubbleSort.c
+
+	In bubbleSort assembly: variable is represented as: movl $0, -8(%rbp), this is because this same var. is tested to check if 		equal to one later on in the assembly. 
+
+	in objdump we can see it as 400928: 7e 1e jle 400a48 <bubblesort + 0x767> this is because it will perform a jump if less than 		and the variable haveExchanged is the var being tested for the jump to determine whether or not to break out of the do-while 		loop.
+
+
+C) Variable array:
+
+	Command: gcc -O0 -c -S sortProg.c 
+
+	The variable is represented in assembly as .L9 movl $array, %esi
+
+	The variable is moved as an immediate into the register %esi
+
+	
+D) Command: objdump -S sortO0 		Code for Insertion Sort in ./sortO0:
+
+	40096d:	e8 ee 00 00 00       	callq  400a60 <insertionSort>
+
+

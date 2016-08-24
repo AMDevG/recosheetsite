@@ -1,0 +1,25 @@
+Optimization
+
+O0
+4008fc:	31 c0                	xor    %eax,%eax
+4008fe:	be a0 20 60 00       	mov    $0x6020a0,%esi
+
+O2
+
+400702:	31 c0                	xor    %eax,%eax
+400704:	49 89 dc             	mov    %rbx,%r12
+
+
+
+O0
+
+40097e:	e8 4f 00 00 00       	callq  4009d2 <bubbleSort>
+400983:	90                   	nop
+400984:	c7 45 d8 00 00 00 00 	movl   $0x0,-0x28(%rbp)
+
+
+O2
+
+40078f:	e8 2c 02 00 00       	callq  4009c0 <bubbleSort>
+400794:	0f 1f 40 00          	nopl   0x0(%rax)
+400798:	8b 13                	mov    (%rbx),%edx

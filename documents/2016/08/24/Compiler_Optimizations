@@ -1,0 +1,10 @@
+Optimization
+
+O0
+4008fc:	31 c0                	xor    %eax,%eax
+4008fe:	be a0 20 60 00       	mov    $0x6020a0,%esi
+
+O2
+
+400702:	31 c0                	xor    %eax,%eax
+400704:	49 89 dc             	mov    %rbx,%r12

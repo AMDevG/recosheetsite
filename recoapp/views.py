@@ -42,17 +42,20 @@ def reco(request):
 def list(request):
 
     if request.method == "POST":
-        parent_id = request.POST['parent_id']
+        
         files = request.FILES.getlist('myfiles')
+        mail = EmailMessage("Hello", "testemail", 'bprecosheet@gmail.com', ['jeberry308@gmail.com'])
+        
         for a_file in files:
             instance = Attachment(
-                parent_id=parent_id,
+                
                 file_name=a_file.name,
                 attachment=a_file
             )
             instance.save()
-            print(a_file.name)
+            mail.attach(a_file.name, a_file.read(), a_file.content_type)
 
+        mail.send()
         return render(request,'add_attachment_done.html')
 
     return render(request, "add_attachment.html")

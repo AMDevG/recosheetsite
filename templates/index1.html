@@ -31,8 +31,12 @@
     <div id="propBox">
         <div class="emailForm" id="contactForm">
 
-        <form action="{%url 'recoapp:reco' %}" method="post" enctype="multipart/form-data" id="contForm">
+        <form action="{%url 'recoapp:list' %}" method="post" enctype="multipart/form-data" class="contForm">
             {% csrf_token %}
+
+
+
+
             <br>Transaction Name:<br>
                 <input type="text" name="transName" size="30"><br>
 
@@ -77,7 +81,7 @@
 
     
       
-            <p>{{ form.non_field_errors }}</p>
+   <!--         <p>{{ form.non_field_errors }}</p>
 
             <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
 
@@ -85,27 +89,29 @@
                 {{ form.docfile.errors }}
                 {{ form.docfile }}
             </p>
+-->
+
 
 
        
             <br>
 
-        <button name = "Upload" type = "submit" >Send</button>
-       
+     <!--   <button name = "Upload" type = "submit" >Send</button> -->
 
-        </form>
 
-<br>
-<br>
 
-        <form action="{%url 'recoapp:list' %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-
-            <input id="id_parent_id" type="text" maxlength="18" name="parent_id">
+            
 
             <input type="file" name="myfiles" multiple>
 
-            <button type="submit">go</button>
+            <br>
+            <br>
+
+            <button type="submit">Upload</button>
+            <br>
+            <br>
+
+        </form>
 
         </div>
 
